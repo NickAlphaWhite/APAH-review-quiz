@@ -80,6 +80,7 @@ A/Church of Sainte-Foy.jpg
 A/The Kiss, Gustav Klimt.jpg
 A/Arena Chapel-2.jpg
 A/Seated scribe.jpg
+A/Conical tower and circular wall of Great Zimbabwe-Conical tower.jpg
 A/Notre Dame de la Belle Verriere window of Chartres Cathedral.jpg
 A/Pink Panther.jpg
 A/Kabaa-1.jpg
@@ -282,7 +283,6 @@ A/Les Demoiselles d'Avignon.jpg
 A/Folio from a Qur'an.jpg
 A/Sistine Chapel-2.jpg
 A/Jacob Wresting the Angel.jpg
-A/Conical tower of Great Zimbabwe.jpg
 A/Dome of the Rock-1.jpg
 A/Gathering at the Kaaba.jpg
 A/Buddha at Bamiyan-1.jpg
