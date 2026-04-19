@@ -277,7 +277,6 @@ A/Nadar Raising Photography to the Height of Art.jpg
 A/Buddha of Borobudur Temple.jpg
 A/Transformation mask, closed.jpg
 A/Olmec-style mask of Templo Mayor.jpg
-A/Malagan display.jpg
 A/Great Serpent Mound.jpg
 A/Mesa Verde cliff dwellings.jpg
 A/Les Demoiselles d'Avignon.jpg
@@ -335,6 +334,7 @@ A/Fallingwater site plan.jpg
 A/Lakshmana Temple.jpg
 A/Westminster Hall of Palace of Westminster.jpg
 A/Contextual photograph Aka elephant mask.jpg
+A/Malagan display and mask-display.jpg
 A/White Temple.jpg
 A/Las Meninas.jpg
 A/Earth's Creation.jpg
