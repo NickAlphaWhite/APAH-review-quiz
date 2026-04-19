@@ -154,7 +154,6 @@ A/Beaker with ibex motifs.jpg
 A/Helios, horses, and Dionysus.jpg
 A/Still Life in Studio.jpg
 A/Black-on-black ceramic vessel.jpg
-A/Great Pyramids plan.jpg
 A/The Delphic Sibyl from Sistine Chapel.jpg
 A/Anavysos Kouros.jpg
 A/No Cryiing Allowed in the Barbershop.jpg
@@ -276,6 +275,7 @@ A/The Swing.jpg
 A/Nadar Raising Photography to the Height of Art.jpg
 A/Buddha of Borobudur Temple.jpg
 A/Transformation mask, closed.jpg
+A/Great Pyramids and Sphinx plan.jpg
 A/Olmec-style mask of Templo Mayor.jpg
 A/Great Serpent Mound.jpg
 A/Mesa Verde cliff dwellings.jpg
