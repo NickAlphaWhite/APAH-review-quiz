@@ -66,6 +66,7 @@ A/Painted elk hide.jpg
 A/Fruit and Insects.jpg
 A/Grest Mosque at Cordoba detail.jpg
 A/Forbidden City.jpg
+A/Under the Wave off Kanagawa.jpg
 A/Dedication Page with Blanche of Castile and King Louis IX of France from Bibles moralisees.jpg
 A/Guggenheim Museum Bilbao site plan.jpg
 A/All-T'oqapu tunic.jpg
@@ -188,7 +189,6 @@ A/Travelers among Mountains and Streams.jpg
 A/St. Luke incipit page.jpg
 A/Chairman Mao en Route to Anyuan.jpg
 A/Presentation of Fijian mats and tapa cloths to Queen Elizabeth II.jpg
-A/Under the Waves off Kanagawa.jpg
 A/Tomb of the Triclinium.jpg
 A/Vietnam Veterans Memorial.jpg
 A/City of Cusco plan.jpg
