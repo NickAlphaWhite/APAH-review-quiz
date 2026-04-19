@@ -15,7 +15,6 @@ A/Tamati Waka Nene.jpg
 A/Curved Inka wall of Qorikancha with Santo Domingo.jpg
 A/Front Gate of Forbidden City.jpg
 A/Temple of Athena Nike.jpg
-A/White and Red Plum Blossom-2.jpg
 A/Great Mosque at Isfahan-1.jpg
 A/The Palace at Versailles-2.jpg
 A/Merovingian looped fibulae.jpg
@@ -287,6 +286,7 @@ A/Sistine Chapel-2.jpg
 A/Dome of the Rock-1.jpg
 A/Gathering at the Kaaba.jpg
 A/Buddha at Bamiyan-1.jpg
+A/White and Red Plum Blossoms-2.jpg
 A/Haigia Sophia plan.jpg
 A/Summer Trees.jpg
 A/Todai-ji.jpg
