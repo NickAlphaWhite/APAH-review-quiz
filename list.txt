@@ -1,4 +1,3 @@
-A/Apollo.jpg
 A/Portrait of Sin Sukju.jpg
 A/The Bay.jpg
 A/Nio guardian statue of Todai-ji-2.jpg
@@ -56,6 +55,7 @@ A/Ryoan-ji plan.jpg
 A/White and Red Plum Blossoms-1.jpg
 A/The Starry Night.jpg
 A/The Burghers of Calais.jpg
+A/Temple of Minerva and sculpture of Apollo-Apollo.jpg
 A/Lakshmana Temple plan.jpg
 A/Lintel 25, Structure 23 of Yaxchilan.jpg
 A/Tutankhamun’s innermost coffin.jpg
