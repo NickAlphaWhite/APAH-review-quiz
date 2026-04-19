@@ -40,6 +40,7 @@ A/Il Gesu-1.jpg
 A/Great Buddha of Todai-ji.jpg
 A/Winged Victory of Samothrace.jpg
 A/Mosque of Selim II-1.jpg
+A/Rebecca and Eliezer at the Well and Jacob Wrestling the Angel-Rebecca and Eliezer at the Well.jpg
 A/City of Machu Picchu.jpg
 A/The Coiffure.jpg
 A/The Tete a Tete.jpg
@@ -286,7 +287,6 @@ A/Jacob Wresting the Angel.jpg
 A/Dome of the Rock-1.jpg
 A/Gathering at the Kaaba.jpg
 A/Buddha at Bamiyan-1.jpg
-A/Rebecca and Eliezer at the Well.jpg
 A/Haigia Sophia plan.jpg
 A/Summer Trees.jpg
 A/Todai-ji.jpg
