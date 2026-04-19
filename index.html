@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AP Art History Curator | Final Fix</title>
+    <title>AP Art History Curator | Study Pro</title>
     <style>
         :root {
             --glass: rgba(255, 255, 255, 0.85);
@@ -12,6 +12,7 @@
             --text-light: #86868b;
             --success: #34c759;
             --error: #ff3b30;
+            --review: #ff9500;
         }
 
         body {
@@ -23,57 +24,81 @@
         }
 
         #app {
-            width: 90%; max-width: 1200px; background: var(--glass);
+            width: 95%; max-width: 1200px; background: var(--glass);
             backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-            border-radius: 30px; padding: 40px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; gap: 20px;
+            border-radius: 30px; padding: 30px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; gap: 15px;
         }
 
+        header { text-align: center; }
+        h1 { font-size: 26px; font-weight: 600; margin: 0; }
+        
         .gallery {
             display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;
-            min-height: 500px; align-items: center;
-            background: rgba(255,255,255,0.2); border-radius: 20px; padding: 20px;
+            min-height: 480px; align-items: center;
+            background: rgba(255,255,255,0.2); border-radius: 20px; padding: 15px;
+            overflow: hidden;
         }
         .gallery img {
-            max-height: 450px; max-width: 45%; border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-height: 420px; max-width: 48%; border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: 0.3s;
         }
 
-        .input-section { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .input-section { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        #feedback { height: 24px; font-weight: 600; font-size: 18px; }
+
         input {
-            width: 100%; max-width: 600px; padding: 18px 25px;
-            font-size: 20px; border: none; border-radius: 18px;
+            width: 100%; max-width: 600px; padding: 16px 20px;
+            font-size: 18px; border: none; border-radius: 15px;
             background: white; text-align: center; outline: none;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        .nav-bar { display: flex; justify-content: space-between; width: 100%; max-width: 600px; gap: 12px; }
-        .btn { flex: 1; padding: 14px; border-radius: 12px; border: none; font-size: 15px; font-weight: 600; cursor: pointer; }
+        .nav-bar { display: flex; justify-content: space-between; width: 100%; max-width: 600px; gap: 10px; }
+        .btn { flex: 1; padding: 12px; border-radius: 10px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        .btn:active { transform: scale(0.98); }
         .btn-primary { background: var(--accent); color: white; }
         .btn-secondary { background: rgba(0,0,0,0.05); color: var(--text-dark); }
-        #status { text-align:center; font-size:12px; color:var(--text-light); }
+        .btn-review { background: var(--review); color: white; }
+
+        .status-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.05);
+            font-size: 13px; color: var(--text-light);
+        }
+        .highlight { color: var(--text-dark); font-weight: 700; }
     </style>
 </head>
 <body>
 
 <div id="app">
-    <header style="text-align: center;">
-        <h1 style="margin:0;">AP Art History Curator</h1>
-        <div style="font-size:11px; color:var(--text-light); letter-spacing:2px;">GITHUB FOLDER A ENGINE</div>
+    <header>
+        <h1>AP Art History Curator</h1>
+        <div id="mode-indicator" style="font-size: 10px; color: var(--accent); letter-spacing: 1px; margin-top: 4px;">PRACTICE MODE: ALL 250</div>
     </header>
 
-    <div class="gallery" id="image-display">Loading Library...</div>
+    <div class="gallery" id="image-display">Syncing Library...</div>
 
     <div class="input-section">
-        <div id="feedback" style="height:26px; font-weight:600;"></div>
+        <div id="feedback"></div>
         <input type="text" id="answer-input" placeholder="Type artwork name..." autocomplete="off">
+        
         <div class="nav-bar">
-            <button class="btn btn-secondary" onclick="changeWork(-1)">Prev</button>
-            <button class="btn btn-primary" onclick="showNextWordHint()">Hint</button>
+            <button class="btn btn-secondary" onclick="changeWork(-1)">Previous</button>
+            <button class="btn btn-primary" onclick="showNextWordHint()">Hint Word</button>
             <button class="btn btn-secondary" onclick="changeWork(1)">Next</button>
         </div>
+
+        <div class="nav-bar">
+            <button id="wrong-btn" class="btn btn-secondary" onclick="toggleWrongManual()">Add to Review</button>
+            <button id="mode-btn" class="btn btn-secondary" onclick="toggleMode()">Switch to Review List</button>
+        </div>
     </div>
-    <div id="status"></div>
+
+    <div class="status-footer">
+        <div>Item: <span id="idx-view" class="highlight">0</span> / <span id="total-view">0</span></div>
+        <div>Review List: <span id="wrong-count" style="color:var(--error); font-weight:700">0</span></div>
+    </div>
 </div>
 
 <script>
@@ -82,9 +107,9 @@ let localFiles = [];
 let currentPool = [];
 let currentIndex = 0;
 let hintWordIndex = 0;
+let wrongList = JSON.parse(localStorage.getItem('ap_ah_review_v4') || '[]');
 
-// 图片文件夹的名字
-const FOLDER = "A";
+const FOLDER = "A"; 
 
 async function bootstrap() {
     try {
@@ -97,37 +122,31 @@ async function bootstrap() {
             .map(line => {
                 let clean = line.trim().replace(/^\d+\.\s*/, '');
                 let rawName = clean.split('.')[0].trim();
-                // 移除音符并转为小写用于匹配
                 let norm = rawName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
                 return { name: rawName, norm: norm };
             });
 
-        // 过滤 list.txt，移除潜在的空白行和 \r 符号
         localFiles = lText.split('\n').map(l => l.trim()).filter(l => l.length > 2);
         
         currentPool = [...officialData];
         shuffle(currentPool);
-        loadWork();
+        init();
     } catch (e) {
-        document.getElementById('image-display').innerHTML = "Fetch error. Ensure files are in the same GitHub repo.";
+        document.getElementById('image-display').innerHTML = "Failed to load data. Check GitHub path.";
     }
 }
 
 function findImages(workObj) {
     const target = workObj.norm;
-    // 去噪正则：去掉各种修饰词和文件后缀
     const noise = [/site plan/ig, /plan/ig, /contextual photo/ig, /from/ig, /detail/ig, /-\d/g, /\.jpg/ig, /\.png/ig, /'/g];
 
     return localFiles.filter(fileName => {
         let f = fileName.toLowerCase();
         if (f.includes(target)) return true;
-        
         let fClean = f;
         noise.forEach(r => fClean = fClean.replace(r, ''));
         fClean = fClean.trim();
-        
-        if (fClean.length < 3) return false;
-        return target.includes(fClean) || fClean.includes(target);
+        return fClean.length > 3 && (target.includes(fClean) || fClean.includes(target));
     });
 }
 
@@ -135,36 +154,100 @@ function loadWork() {
     const work = currentPool[currentIndex];
     const display = document.getElementById('image-display');
     display.innerHTML = '';
-    
+    document.getElementById('answer-input').value = '';
+    document.getElementById('feedback').innerText = '';
+    hintWordIndex = 0;
+
     const matches = findImages(work);
 
     if (matches.length > 0) {
         matches.forEach(fileName => {
             const img = document.createElement('img');
-            
-            /** * 关键修复：
-             * 1. 强制使用相对路径 FOLDER + "/" + fileName
-             * 2. 使用 encodeURIComponent 对文件名进行编码，解决空格和特殊字符导致的 404
-             */
             const encodedName = fileName.split('/').map(part => encodeURIComponent(part)).join('/');
             img.src = `${FOLDER}/${encodedName}`;
-            
-            img.onerror = () => {
-                console.error("404 Not Found:", img.src);
-            };
             display.appendChild(img);
         });
     } else {
-        display.innerHTML = `<div style="text-align:center; color:var(--text-light)">
-            <h3>No Image Found</h3>
-            <p>${work.name}</p>
-        </div>`;
+        display.innerHTML = `<div style="text-align:center; color:var(--text-light)"><h3>No Image Match</h3><p>${work.name}</p></div>`;
     }
-    document.getElementById('status').innerText = `${currentIndex + 1} / ${currentPool.length}`;
+    updateStatus();
 }
 
-// 核心逻辑
+function checkAnswer() {
+    const user = document.getElementById('answer-input').value.trim().toLowerCase();
+    const work = currentPool[currentIndex];
+    const feedback = document.getElementById('feedback');
+
+    if (user === work.name.toLowerCase() || user === work.norm) {
+        feedback.innerText = "Beautifully Correct.";
+        feedback.style.color = "var(--success)";
+        setTimeout(() => changeWork(1), 1000);
+    } else {
+        feedback.innerText = "Keep trying...";
+        feedback.style.color = "var(--error)";
+        // 答错自动加入错题本
+        addToReview(work);
+    }
+}
+
+function addToReview(work) {
+    if (!wrongList.some(item => item.name === work.name)) {
+        wrongList.push(work);
+        saveReview();
+    }
+}
+
+function toggleWrongManual() {
+    const work = currentPool[currentIndex];
+    const idx = wrongList.findIndex(item => item.name === work.name);
+    if (idx > -1) {
+        wrongList.splice(idx, 1);
+    } else {
+        wrongList.push(work);
+    }
+    saveReview();
+    updateStatus();
+}
+
+function saveReview() {
+    localStorage.setItem('ap_ah_review_v4', JSON.stringify(wrongList));
+    document.getElementById('wrong-count').innerText = wrongList.length;
+}
+
+function toggleMode() {
+    const isMainMode = document.getElementById('mode-btn').innerText.includes('Review');
+    if (isMainMode) {
+        if (wrongList.length === 0) {
+            alert("Your Review List is empty!");
+            return;
+        }
+        currentPool = [...wrongList];
+        document.getElementById('mode-btn').innerText = "Switch to All 250";
+        document.getElementById('mode-indicator').innerText = "PRACTICE MODE: REVIEW LIST";
+    } else {
+        currentPool = [...officialData];
+        document.getElementById('mode-btn').innerText = "Switch to Review List";
+        document.getElementById('mode-indicator').innerText = "PRACTICE MODE: ALL 250";
+    }
+    currentIndex = 0;
+    shuffle(currentPool);
+    loadWork();
+}
+
+function updateStatus() {
+    document.getElementById('idx-view').innerText = currentIndex + 1;
+    document.getElementById('total-view').innerText = currentPool.length;
+    document.getElementById('wrong-count').innerText = wrongList.length;
+    
+    // 更新错题按钮状态
+    const isStored = wrongList.some(item => item.name === currentPool[currentIndex].name);
+    const btn = document.getElementById('wrong-btn');
+    btn.innerText = isStored ? "Remove from Review" : "Add to Review";
+    btn.className = isStored ? "btn btn-review" : "btn btn-secondary";
+}
+
 function changeWork(step) {
+    if (currentPool.length === 0) return;
     currentIndex = (currentIndex + step + currentPool.length) % currentPool.length;
     loadWork();
 }
@@ -177,23 +260,8 @@ function showNextWordHint() {
     }
 }
 
-function checkAnswer() {
-    const user = document.getElementById('answer-input').value.trim().toLowerCase();
-    const correct = currentPool[currentIndex].name.toLowerCase();
-    const correctNorm = currentPool[currentIndex].norm;
-    const feedback = document.getElementById('feedback');
-
-    if (user === correct || user === correctNorm) {
-        feedback.innerText = "Beautifully Correct.";
-        feedback.style.color = "var(--success)";
-        setTimeout(() => changeWork(1), 1000);
-    } else {
-        feedback.innerText = "Spelling check...";
-        feedback.style.color = "var(--error)";
-    }
-}
-
 function shuffle(array) { array.sort(() => Math.random() - 0.5); }
+function init() { loadWork(); }
 
 document.getElementById('answer-input').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') checkAnswer();
