@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AP Art History Curator | Info Edition</title>
+    <title>APAH Curator | Smart Review</title>
     <style>
         :root {
             --glass: rgba(255, 255, 255, 0.85);
@@ -30,7 +30,7 @@
             border: 1px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; gap: 15px;
         }
 
-        /* 详情弹窗样式 */
+        /* 模态框通用样式 */
         #info-overlay, #manager-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); z-index: 1000;
@@ -49,7 +49,6 @@
             max-height: 400px; max-width: 48%; border-radius: 12px; 
             box-shadow: 0 8px 20px rgba(0,0,0,0.1); cursor: zoom-in; transition: 0.3s;
         }
-        .gallery img:hover { transform: scale(1.02); }
 
         .input-section { display: flex; flex-direction: column; align-items: center; gap: 12px; }
         input#answer-input {
@@ -58,20 +57,19 @@
         }
         
         .nav-bar { display: flex; justify-content: space-between; width: 100%; max-width: 600px; gap: 10px; }
-        .btn { flex: 1; padding: 12px; border-radius: 10px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; }
+        .btn { flex: 1; padding: 12px; border-radius: 10px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.2s; }
         .btn-primary { background: var(--accent); color: white; }
         .btn-secondary { background: rgba(0,0,0,0.05); color: var(--text-dark); }
         .btn-review { background: var(--review); color: white; }
         
-        /* 针对 Done 按钮的小样式 */
-        .btn-sm { max-width: 120px; margin-top: 15px; font-size: 13px; padding: 10px; }
+        .btn-sm { max-width: 120px; margin: 15px auto 0; font-size: 13px; padding: 10px; display: block; }
 
         .manager-content {
             background: white; width: 90%; max-width: 800px; height: 80vh;
             border-radius: 25px; padding: 30px; display: flex; flex-direction: column; gap: 15px;
         }
         .list-container { flex: 1; overflow-y: auto; background: #f9f9f9; border-radius: 10px; padding: 10px; }
-        .list-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; }
+        .list-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -105,7 +103,7 @@
 <div id="info-overlay" onclick="closeInfo()">
     <div class="modal-content" onclick="event.stopPropagation()">
         <h3 id="info-title" style="margin-top:0; color:var(--accent);"></h3>
-        <p id="info-desc" style="line-height:1.6; color:var(--text-dark); text-align: left;"></p>
+        <p id="info-desc" style="line-height:1.7; color:var(--text-dark); text-align: left; background:#f8f8f8; padding:15px; border-radius:15px;"></p>
         <button class="btn btn-secondary btn-sm" onclick="closeInfo()">Close</button>
     </div>
 </div>
@@ -116,7 +114,7 @@
             <h2 style="margin:0;">Review List Manager</h2>
             <button onclick="closeManager()" style="border:none; background:none; font-size:24px; cursor:pointer;">&times;</button>
         </div>
-        <input type="text" id="manager-search" placeholder="Search..." oninput="renderManagerList()" style="padding:10px; border-radius:10px; border:1px solid #ddd;">
+        <input type="text" id="manager-search" placeholder="Search..." oninput="renderManagerList()" style="padding:12px; border-radius:10px; border:1px solid #ddd; outline:none;">
         <div class="list-container" id="manager-list"></div>
         <button class="btn btn-primary btn-sm" onclick="closeManager()">Done</button>
     </div>
@@ -128,7 +126,7 @@ let localFiles = [];
 let currentPool = [];
 let currentIndex = 0;
 let hintWordIndex = 0;
-let wrongList = JSON.parse(localStorage.getItem('ap_ah_review_v6') || '[]');
+let wrongList = JSON.parse(localStorage.getItem('ap_ah_review_v7') || '[]');
 
 const FOLDER = "A";
 
@@ -142,9 +140,9 @@ async function bootstrap() {
             .filter(line => /^\s*\d+\./.test(line))
             .map(line => {
                 let fullStr = line.trim().replace(/^\d+\.\s*/, '');
-                let parts = fullStr.split('.'); 
-                let rawName = parts[0].trim(); // 名字
-                let infoText = parts.slice(1).join('.').trim(); // 名字之后的所有信息
+                let firstDot = fullStr.indexOf('.');
+                let rawName = firstDot !== -1 ? fullStr.substring(0, firstDot).trim() : fullStr;
+                let infoText = firstDot !== -1 ? fullStr.substring(firstDot + 1).trim() : "";
                 let norm = rawName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
                 return { name: rawName, info: infoText, norm: norm };
             });
@@ -183,26 +181,52 @@ function loadWork() {
     findImages(work).forEach(fileName => {
         const img = document.createElement('img');
         img.src = `${FOLDER}/${fileName.split('/').map(p => encodeURIComponent(p)).join('/')}`;
-        // 给图片添加点击事件：显示描述
         img.onclick = () => showInfo(work);
         display.appendChild(img);
     });
     updateUI();
 }
 
-// 描述弹窗逻辑
-function showInfo(work) {
-    document.getElementById('info-title').innerText = work.name;
-    document.getElementById('info-desc').innerText = work.info || "No additional information found.";
-    document.getElementById('info-overlay').style.display = 'flex';
-}
-function closeInfo() {
-    document.getElementById('info-overlay').style.display = 'none';
+function checkAnswer() {
+    const user = document.getElementById('answer-input').value.trim().toLowerCase();
+    const work = currentPool[currentIndex];
+    const feedback = document.getElementById('feedback');
+
+    if (user === work.name.toLowerCase() || user === work.norm) {
+        feedback.innerText = "Correct!";
+        feedback.style.color = "var(--success)";
+        
+        // --- 关键优化逻辑 ---
+        // 如果答对了，且该作品在错题本中，自动将其移除
+        const rIndex = wrongList.findIndex(i => i.name === work.name);
+        if (rIndex > -1) {
+            wrongList.splice(rIndex, 1);
+            saveReview();
+        }
+        
+        setTimeout(() => changeWork(1), 800);
+    } else {
+        feedback.innerText = "Keep trying...";
+        feedback.style.color = "var(--error)";
+        // 答错自动加入
+        if (!wrongList.some(i => i.name === work.name)) {
+            wrongList.push(work);
+            saveReview();
+        }
+    }
+    updateUI();
 }
 
-// 管理面板逻辑
+// 弹窗与管理逻辑
+function showInfo(work) {
+    document.getElementById('info-title').innerText = work.name;
+    document.getElementById('info-desc').innerText = work.info || "No description available.";
+    document.getElementById('info-overlay').style.display = 'flex';
+}
+function closeInfo() { document.getElementById('info-overlay').style.display = 'none'; }
 function openManager() { document.getElementById('manager-overlay').style.display = 'flex'; renderManagerList(); }
 function closeManager() { document.getElementById('manager-overlay').style.display = 'none'; }
+
 function renderManagerList() {
     const searchTerm = document.getElementById('manager-search').value.toLowerCase();
     const container = document.getElementById('manager-list');
@@ -221,10 +245,12 @@ function toggleReviewByName(name) {
     const idx = wrongList.findIndex(i => i.name === name);
     if (idx > -1) wrongList.splice(idx, 1);
     else { const item = officialData.find(i => i.name === name); if (item) wrongList.push(item); }
-    localStorage.setItem('ap_ah_review_v6', JSON.stringify(wrongList));
+    saveReview();
     renderManagerList();
     updateUI();
 }
+
+function saveReview() { localStorage.setItem('ap_ah_review_v7', JSON.stringify(wrongList)); }
 
 function toggleMode() {
     const isReviewMode = document.getElementById('mode-indicator').innerText.includes('REVIEW');
@@ -255,21 +281,6 @@ function showNextWordHint() {
 }
 function shuffle(array) { array.sort(() => Math.random() - 0.5); }
 document.getElementById('answer-input').addEventListener('keypress', (e) => { if (e.key === 'Enter') checkAnswer(); });
-function checkAnswer() {
-    const user = document.getElementById('answer-input').value.trim().toLowerCase();
-    const work = currentPool[currentIndex];
-    if (user === work.name.toLowerCase() || user === work.norm) {
-        document.getElementById('feedback').innerText = "Correct!";
-        setTimeout(() => changeWork(1), 800);
-    } else {
-        document.getElementById('feedback').innerText = "Wrong!";
-        if (!wrongList.some(i => i.name === work.name)) {
-            wrongList.push(work);
-            localStorage.setItem('ap_ah_review_v6', JSON.stringify(wrongList));
-            updateUI();
-        }
-    }
-}
 bootstrap();
 </script>
 </body>
