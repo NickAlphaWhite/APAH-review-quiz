@@ -18,7 +18,6 @@ A/Temple of Athena Nike.jpg
 A/Great Mosque at Isfahan-1.jpg
 A/The Palace at Versailles-2.jpg
 A/Merovingian looped fibulae.jpg
-A/Ludovisi battle Sacrophagus.jpg
 A/Temple of Amun-Re.jpg
 A/Stonehenge-2.jpg
 A/Walls at Saqsa Waman of City of Cusco.jpg
@@ -352,6 +351,7 @@ A/Spaniard and Indian Produce a Mestizo.jpg
 A/Peplos Kore.jpg
 A/Virgin and Child between Saints Theodore and George.jpg
 A/Improvisation 28 (second version).jpg
+A/Ludovisi Battle Sarcophagus.jpg
 A/A Philosopher Giving a Lecture on the Orrery.jpg
 A/Great Temple of Petra.jpg
 A/Alexander Mosaic.jpg
