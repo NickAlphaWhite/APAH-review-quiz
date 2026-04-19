@@ -30,7 +30,7 @@
             border: 1px solid rgba(255, 255, 255, 0.4); display: flex; flex-direction: column; gap: 15px;
         }
 
-        /* 模态框 */
+        /* 模态框样式 */
         #info-overlay, #manager-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); z-index: 1000;
@@ -51,7 +51,6 @@
         .list-container { flex: 1; overflow-y: auto; background: #f9f9f9; border-radius: 10px; padding: 10px; }
         .list-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee; font-size: 13px; }
 
-        /* 通用按钮 */
         .btn { padding: 10px 18px; border-radius: 12px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s; }
         .btn:active { transform: scale(0.96); }
         .btn-primary { background: var(--accent); color: white; }
@@ -59,7 +58,6 @@
         .btn-review { background: var(--review); color: white; }
         .btn-fixed-width { min-width: 85px; }
 
-        /* 主界面 */
         .gallery {
             display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;
             min-height: 450px; align-items: center; background: rgba(255,255,255,0.1); border-radius: 20px; padding: 15px;
@@ -79,15 +77,15 @@
 
 <div id="app">
     <header style="text-align: center;">
-        <h1 style="margin:0; font-size: 22px;">APAH Quiz by NAW</h1>
+        <h1 style="margin:0; font-size: 22px;">APAH Quiz (Name)</h1>
         <div id="mode-indicator" style="font-size: 10px; color: var(--accent); letter-spacing: 1px; font-weight: 700;">MODE: ALL 250</div>
     </header>
 
-    <div class="gallery" id="image-display">Loading images...</div>
+    <div class="gallery" id="image-display">Loading...</div>
 
     <div class="input-section">
         <div id="feedback" style="height:20px; font-size:14px; font-weight:600;"></div>
-        <input type="text" id="answer-input" placeholder="Name the artwork..." autocomplete="off">
+        <input type="text" id="answer-input" placeholder="Type name..." autocomplete="off">
         <div class="main-nav">
             <button class="btn btn-secondary" onclick="changeWork(-1)">Prev</button>
             <button class="btn btn-primary" onclick="showNextWordHint()">Hint</button>
@@ -97,7 +95,7 @@
             <button id="wrong-btn" class="btn btn-secondary" onclick="toggleWrongManual()">Add to Review</button>
             <button class="btn btn-secondary" onclick="openManager()">Manage Review</button>
         </div>
-        <button id="mode-btn" class="btn btn-secondary" style="width:100%; max-width:600px;" onclick="toggleMode()">Switch Practice Mode</button>
+        <button id="mode-btn" class="btn btn-secondary" style="width:100%; max-width:600px;" onclick="toggleMode()">Switch Mode</button>
     </div>
 </div>
 
@@ -130,7 +128,7 @@ let localFiles = [];
 let currentPool = [];
 let currentIndex = 0;
 let hintWordIndex = 0;
-let wrongList = JSON.parse(localStorage.getItem('ap_ah_review_v10') || '[]');
+let wrongList = JSON.parse(localStorage.getItem('ap_ah_review_v11') || '[]');
 
 const FOLDER = "A";
 
@@ -145,7 +143,6 @@ async function bootstrap() {
             let firstDot = fullStr.indexOf('.');
             let rawName = firstDot !== -1 ? fullStr.substring(0, firstDot).trim() : fullStr;
             let infoText = firstDot !== -1 ? fullStr.substring(firstDot + 1).trim() : "";
-            // 去掉 norm 里的单引号，方便匹配
             let norm = rawName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/['’]/g, "");
             return { name: rawName, info: infoText, norm: norm };
         });
@@ -160,7 +157,7 @@ async function bootstrap() {
 function loadWork() {
     const display = document.getElementById('image-display');
     if (currentPool.length === 0) {
-        display.innerHTML = "<h3>Review List is empty.</h3>";
+        display.innerHTML = "<h3>List empty.</h3>";
         return;
     }
     const work = currentPool[currentIndex];
@@ -169,12 +166,12 @@ function loadWork() {
     document.getElementById('feedback').innerText = '';
     hintWordIndex = 0;
 
+    // 核心修改：使用严格的包含判定，避免“Apollo”匹配到“Apollo 11 stones”的情况
     const target = work.norm;
     localFiles.filter(fileName => {
         let f = fileName.toLowerCase().replace(/[’¡¯']/g, "");
-        if (f.includes(target)) return true;
-        let fBase = f.replace(/site plan|plan|contextual photo|from|detail|-\d|\.jpg|\.png/ig, '').trim();
-        return fBase.length > 4 && (target.includes(fBase) || fBase.includes(target));
+        // 只有当文件名包含完整的目标名字时才显示
+        return f.includes(target);
     }).forEach(fileName => {
         const img = document.createElement('img');
         const encodedPath = fileName.split('/').map(p => encodeURIComponent(p)).join('/');
@@ -185,17 +182,12 @@ function loadWork() {
     updateUI();
 }
 
-// 核心修复：手动添加/移除逻辑
 function toggleWrongManual() {
     const work = currentPool[currentIndex];
     if (!work) return;
-
     const idx = wrongList.findIndex(i => i.name === work.name);
-    if (idx > -1) {
-        wrongList.splice(idx, 1);
-    } else {
-        wrongList.push(work);
-    }
+    if (idx > -1) wrongList.splice(idx, 1);
+    else wrongList.push(work);
     saveReview();
     updateUI();
 }
@@ -205,11 +197,10 @@ function checkAnswer() {
     const work = currentPool[currentIndex];
     const feedback = document.getElementById('feedback');
 
+    // 严格匹配检查
     if (user === work.name.toLowerCase().replace(/['’]/g, "") || user === work.norm) {
         feedback.innerText = "Correct!";
         feedback.style.color = "var(--success)";
-        
-        // 答对自动移除
         const rIdx = wrongList.findIndex(i => i.name === work.name);
         if (rIdx > -1) {
             wrongList.splice(rIdx, 1);
@@ -217,9 +208,8 @@ function checkAnswer() {
         }
         setTimeout(() => changeWork(1), 800);
     } else {
-        feedback.innerText = "Try again...";
+        feedback.innerText = "Wrong!";
         feedback.style.color = "var(--error)";
-        // 答错自动加入
         if (!wrongList.some(i => i.name === work.name)) {
             wrongList.push(work);
             saveReview();
@@ -228,7 +218,6 @@ function checkAnswer() {
     updateUI();
 }
 
-// 管理面板内部的按钮修复
 function renderManagerList() {
     const searchTerm = document.getElementById('manager-search').value.toLowerCase();
     const container = document.getElementById('manager-list');
@@ -239,25 +228,17 @@ function renderManagerList() {
         const isInReview = wrongList.some(w => w.name === item.name);
         const div = document.createElement('div');
         div.className = 'list-item';
-        
-        const span = document.createElement('span');
-        span.innerText = item.name;
+        div.innerHTML = `<span>${item.name}</span>`;
         
         const btn = document.createElement('button');
         btn.innerText = isInReview ? 'Remove' : 'Add';
         btn.style.color = isInReview ? '#ff3b30' : '#34c759';
-        btn.style.fontWeight = '700';
-        btn.style.border = 'none';
-        btn.style.background = 'none';
-        btn.style.cursor = 'pointer';
+        btn.style.fontWeight = '700'; btn.style.border = 'none'; btn.style.background = 'none'; btn.style.cursor = 'pointer';
         
-        // 使用对象引用而不是字符串拼接，彻底解决引号问题
         btn.onclick = () => {
             toggleReviewByName(item.name);
             renderManagerList();
         };
-        
-        div.appendChild(span);
         div.appendChild(btn);
         container.appendChild(div);
     });
@@ -274,7 +255,7 @@ function toggleReviewByName(name) {
     updateUI();
 }
 
-function saveReview() { localStorage.setItem('ap_ah_review_v10', JSON.stringify(wrongList)); }
+function saveReview() { localStorage.setItem('ap_ah_review_v11', JSON.stringify(wrongList)); }
 function openManager() { document.getElementById('manager-overlay').style.display = 'flex'; renderManagerList(); }
 function closeManager() { document.getElementById('manager-overlay').style.display = 'none'; }
 
@@ -301,7 +282,7 @@ function updateUI() {
 
 function showInfo(work) {
     document.getElementById('info-title').innerText = work.name;
-    document.getElementById('info-desc').innerText = work.info || "No details available.";
+    document.getElementById('info-desc').innerText = work.info || "No details.";
     document.getElementById('info-overlay').style.display = 'flex';
 }
 function closeInfo() { document.getElementById('info-overlay').style.display = 'none'; }
