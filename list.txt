@@ -383,7 +383,6 @@ A/San Vitale-2.jpg
 A/Courtyard of Great Mosque at Isfahan.jpg
 A/The Ardabil Carpet.jpg
 A/Where Do We Come From What Are We Where Are We Going.jpg
-A/The Migration of the Negro, Panel no.49.jpg
 A/The Crossing.jpg
 A/‘Ahu ‘ula.jpg
 A/Veranda post of enthroned king and senior wife.jpg
@@ -395,6 +394,7 @@ A/Angkor Wat.jpg
 A/Isenheim altarpiece, open.jpg
 A/The Two Fridas.jpg
 A/Borobudur Temple.jpg
+A/The Migration of the Negro, Panel no49.jpg
 A/Hall of Supreme Harmony.jpg
 A/The Swing (after Fragonard).jpg
 A/David.jpg
