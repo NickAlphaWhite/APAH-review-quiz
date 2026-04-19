@@ -24,7 +24,7 @@ ANCIENT MEDITERRANEAN
 19. The Code of Hammurabi. Babylon (modern Iran). Susian. c. 1792–1750 B.C.E. Basalt.
 20. Temple of Amun-Re. Egypt. New Kingdom, 18th-19th Dynasties. 1550-1250 BC Sandstone & Brick.
 21. Mortuary temple of Hatshepsut. Egypt. New Kingdom, 18th Dynasty. 1473–1458 B.C.E. Sandstone
-22. Akhenaton, Nefertiti, and 3 daughters. New Kingdom, 18th Dynasty. 1353–1335 BC. Limestone.
+22. Akhenaton, Nefertiti, and three daughters. New Kingdom, 18th Dynasty. 1353–1335 BC. Limestone.
 23. Tutankhamun’s tomb, innermost coffin. New Kingdom, 18th Dynasty. 1323 BC Gold w/ Gems
 24. Last judgment of Hu-Nefer. NK 19th Dynasty. 1275 BC papyrus
 25. Lamassu. from the citadel of Sargon II, Dur Sharrukin (Iraq). Neo-Assyrian. 720–705 BC Alabaster.
@@ -32,7 +32,7 @@ ANCIENT MEDITERRANEAN
 27. Anavysos Kouros. Archaic Greek. c. 530 B.C.E. Marble with remnants of paint.
 28. Peplos Kore from the Acropolis. Archaic Greek. c. 530 B.C.E. Marble, painted details.
 29. Sarcophagus of the Spouses. Etruscan. c. 520 B.C.E. Terra cotta.
-30. Audience Hall of Darius and Xerxes. Persepolis, Iran. Persian. c. 520–465 BC Limestone.
+30. Apadana. Audience Hall of Darius and Xerxes. Persepolis, Iran. Persian. c. 520–465 BC Limestone.
 31. Temple of Minerva and sculpture of Apollo. Vulca. c. 510–500 B.C.E. wood, mud brick, or tufa 
 32. Tomb of the Triclinium. Tarquinia, Italy. Etruscan. c. 480–470 B.C.E. Tufa and fresco.
 33. Niobides Krater. Niobid Painter. c. 460–450 B.C.E. Clay, red-figure technique (white highlights).
@@ -40,7 +40,7 @@ ANCIENT MEDITERRANEAN
 35. Acropolis. Athens, Greece. Iktinos and Kallikrates. c. 447–410 B.C.E. Marble.
 36. Grave stele of Hegeso. Attributed to Kallimachos. c. 410 B.C.E. Marble and paint.
 37. Winged Victory of Samothrace. Hellenistic Greek. c. 190 B.C.E. Marble.
-38. Great Altar of Zeus and Athena at Pergamon. Asia Minor Hellenistic Greek. 175 BC Marble 
+38. Great Altar of Zeus and Athena. Asia Minor Hellenistic Greek. 175 BC Marble 
 39. House of the Vettii. Pompeii, Italy. c. 2nd Century B.C.E.; rebuilt c. 62–79 C.E. Cut stone and fresco.
 40. Alexander Mosaic. from the House of Faun, Pompeii. Republican Roman. c. 100 BC Mosaic.
 41. Seated boxer. Hellenistic Greek. c. 100 B.C.E. Bronze.
@@ -66,8 +66,8 @@ EARLY EUROPE & COLONIAL AMERICAS
 58. Church of Sainte-Foy. Conques, France. Romanesque Europe. Church: c. 1050–1130 C.E.; Reliquary of Saint Foy: ninth century C.E., with later additions. Stone (architecture); stone and paint (tympanum); gold, silver, gemstones, and enamel over wood (reliquary).
 59. Bayeux Tapestry. Romanesque Europe c. 1066–1080 C.E. Embroidery on linen. 
 60. Chartres Cathedral. Chartres, France. Gothic Europe. Original construction c. 1145–1155 C.E.; reconstructed c. 1194–1220 C.E. Limestone, stained glass.
-61. Dedication Page with Blanche of Castile and King Louis IX of France, Scenes from the Apocalypse from Bibles moralisées. Gothic Europe. c. 1225–1245 C.E. Illuminated manuscript (ink, tempera, and gold leaf on vellum).
-62. Röttgen Pietà. Late medieval Europe. c. 1300–1325 C.E. Painted wood.
+61. Dedication Page with Blanche of Castile and King Louis IX of France from Bibles moralisees. , Scenes from the Apocalypse from Bibles moralisées. Gothic Europe. c. 1225–1245 C.E. Illuminated manuscript (ink, tempera, and gold leaf on vellum).
+62. Rottgen Pieta. Late medieval Europe. c. 1300–1325 C.E. Painted wood.
 63. Arena Chapel., including Lamentation.Padua, Italy. Unknown architect; Giotto di Bondone (artist). Chapel: c. 1303 C.E.; Fresco: c. 1305. Brick (architecture) and fresco.
 64. Golden Haggadah. Latemedieval Spain. c. 1320 C.E. Illuminated manuscript (pigments and gold leaf on vellum).
 65. Alhambra. Granada, Spain. Nasrid Dynasty. 1354–1391 C.E. Whitewashed adobe stucco, wood, tile, paint, and gilding.
@@ -135,8 +135,8 @@ LATER EUROPE & AMERICAS
 125. Mont Sainte-Victoire. Paul Cézanne. 1902–1904 C.E. Oil on canvas.
 126. Les Demoiselles d’Avignon. Pablo Picasso. 1907 C.E. Oil on canvas.
 127. The Steerage. Alfred Stieglitz. 1907 C.E. Photogravure.
-128. The Kiss. Gustav Klimt. 1907–1908 C.E. Oil and gold leaf on canvas.
-129. The Kiss. Constantin Brancusi. 1907–1908 C.E. Limestone.
+128. The Kiss, Gustav Klimt. 1907–1908 C.E. Oil and gold leaf on canvas.
+129. The Kiss, Constantin Brancusi. 1907–1908 C.E. Limestone.
 130. The Portuguese. Georges Braque. 1911 C.E. Oil on canvas.
 131. Goldfish. Henri Matisse. 1912 C.E. Oil on canvas.
 132. Improvisation 28 (second version). Vassily Kandinsky. 1912 C.E. Oil on canvas.
@@ -157,7 +157,7 @@ LATER EUROPE & AMERICAS
 147. Marilyn Diptych. Andy Warhol. 1962 C.E. Oil, acrylic, and silkscreen enamel on canvas.
 148. Narcissus Garden. Yayoi Kusama. Original installation and performance 1966. Mirror balls.
 149. The Bay. Helen Frankenthaler. 1963 C.E. Acrylic on canvas.
-150. Lipstick on Caterpillar Tracks. Claes Oldenburg. 1969–1974 C.E. Cor-Ten steel, steel, aluminum, and cast resin; painted with polyurethane enamel.
+150. Lipstick (Ascending) on Caterpillar Tracks. Claes Oldenburg. 1969–1974 C.E. Cor-Ten steel, steel, aluminum, and cast resin; painted with polyurethane enamel.
 151. Spiral Jetty. Great Salt Lake, Utah, U.S. Robert Smithson. 1970 C.E. Earthwork: mud, precipitated salt crystals, rocks
 152. House in New Castle County. Delaware, U.S. Robert Venturi, John Rauch, and Denise Scott Brown (architects). 1978–1983 C.E. Wood frame and stucco.
 
@@ -255,7 +255,7 @@ GLOBAL CONTEMPORARY
 233. Trade (Gifts for Trading Land with White People). Jaune Quick-to-See Smith. 1992 C.E. Oil & mixed media on canvas.
 234. Earth’s Creation. Emily Kame Kngwarreye. 1994 C.E. Synthetic polymer paint on canvas.
 235. Rebellious Silence. The Women of Allah series. Shirin Neshat (artist); photo - Cynthia Preston. 1994 C.E. Ink on photograph.
-236. En la Barberia no se Llora (No Crying Allowed in the Barbershop). Pepon Osorio. 1994 C.E. Mixed-media installation.
+236. No Crying Allowed in the Barbershop. Pepon Osorio. 1994 C.E. Mixed-media installation.
 237. Corned Beef 2000. Michel Tuffery. 1994 C.E. Mixed media.
 238. Electronic Superhighway. Nam June Paik. 1995 C.E. Mixed-media installation (49-channel closed-circuit video installation, neon, steel, and electronic components).
 239. The Crossing. Bill Viola. 1996 C.E. Video/sound installation.
