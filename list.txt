@@ -214,7 +214,6 @@ A/Self-Portrait.jpg
 A/Nio guardian statue of Todai-ji-1.jpg
 A/Athenian agora site plan.jpg
 A/Great Mosque at Cordoba-2.jpg
-A/Temple of Minerva plan.jpg
 A/Buk.jpg
 A/Ikenga.jpg
 A/The Steerage.jpg
@@ -404,3 +403,4 @@ A/Pure Land.jpg
 A/Great Pyramids and Sphinx.jpg
 A/The Oxbow.jpg
 A/The Valley of Mexico from the Hillside of Santa Isabel.jpg
+A/Temple of Minerva and sculpture of Apollo-plan.jpg
