@@ -37,7 +37,6 @@ A/Bahram Gur Fights the Karg.jpg
 A/Basin.jpg
 A/Chartres Cathedral-3.jpg
 A/Jayavarman Vll as Buddha of Angkor Wat.jpg
-A/Great Pyramids with Sphinx.jpg
 A/Il Gesu-1.jpg
 A/Great Buddha of Todai-ji.jpg
 A/Winged Victory of Samothrace.jpg
@@ -402,5 +401,6 @@ A/The Swing (after Fragonard).jpg
 A/David.jpg
 A/Seagram Building.jpg
 A/Pure Land.jpg
+A/Great Pyramids and Sphinx.jpg
 A/The Oxbow.jpg
 A/The Valley of Mexico from the Hillside of Santa Isabel.jpg
