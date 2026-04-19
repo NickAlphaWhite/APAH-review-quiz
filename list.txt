@@ -132,6 +132,7 @@ A/Structure 40 of Yaxchilan.jpg
 A/Angkor site plan.jpg
 A/Horn Players.jpg
 A/Observatory of City of Machu Picchu.jpg
+A/A Book from the Sky.jpg
 A/St. Matthew, cross-carpet page.jpg
 A/Justinian panel.jpg
 A/Female mask.jpg
@@ -256,7 +257,6 @@ A/Maize cobs.jpg
 A/Staff god.jpg
 A/Portrait of Sor Juana Ines de la Cruz.jpg
 A/Slave Ship.jpg
-A/A Book fom the Sky.jpg
 A/Chartres Cathedral-1.jpg
 A/Apollo 11 stones.jpg
 A/Henri IV Receives the Portrait of Marie de' Medici.jpg
