@@ -85,6 +85,7 @@ A/Notre Dame de la Belle Verriere window of Chartres Cathedral.jpg
 A/Pink Panther.jpg
 A/Kabaa-1.jpg
 A/Great Stupa at Sanchi plan.jpg
+A/Malagan display and mask-mask.jpg
 A/Old Man's Cloth.jpg
 A/Monticello plan.jpg
 A/Contextual photograph Ndop.jpg
@@ -164,7 +165,6 @@ A/Object (Le Dejeuner en fourrure).jpg
 A/MAXXI National Museum of XXI Century Arts-1.jpg
 A/Palazzo Rucellai.jpg
 A/Contextual photograph Mblo.jpg
-A/Malagan mask.jpg
 A/Lying with the Wolf.jpg
 A/Monday market at the Great Mosque of Djenne.jpg
 A/Cavalry attack of Bayeux Tapestry.jpg
