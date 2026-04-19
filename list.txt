@@ -365,7 +365,6 @@ A/Adam and Eve.jpg
 A/Reliquary figure.jpg
 A/Hunters in the Snow.jpg
 A/Electronic Superhighway.jpg
-A/Androgyne III.jpg
 A/Female deity.jpg
 A/Scenes from the Apocalypse from Bibles moralisees.jpg
 A/South Gate of Angkor Thom.jpg
@@ -404,3 +403,4 @@ A/Great Pyramids and Sphinx.jpg
 A/The Oxbow.jpg
 A/The Valley of Mexico from the Hillside of Santa Isabel.jpg
 A/Temple of Minerva and sculpture of Apollo-plan.jpg
+A/Androgyn III.jpg
