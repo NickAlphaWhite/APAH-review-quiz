@@ -106,6 +106,7 @@ A/Il Gesu-2.jpg
 A/Bandolier bag.jpg
 A/Ruler's feather headdress.jpg
 A/Atrium.jpg
+A/Temple of Minerva and sculpture of Apollo-elevation.jpg
 A/Gold and jade crown.jpg
 A/Lamassu.jpg
 A/Niobides Krater-1.jpg
@@ -344,7 +345,6 @@ A/The Code of Hammurabi.jpg
 A/Detail of Lakshmana Temple-1.jpg
 A/Funeral banner of Xin Zhui.jpg
 A/The Arnolfini Portrait.jpg
-A/Temple of Minerva elevation.jpg
 A/Golden Stool.jpg
 A/Relief sculpture.jpg
 A/Hagia Sophia-2.jpg
