@@ -3,29 +3,29 @@ name: Auto Update List
 on:
   push:
     paths:
-      - 'A/**' # 只有当 A 文件夹内的文件发生变化时才触发
+      - 'A/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # 赋予脚本修改你仓库文件的权限
+      contents: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Generate list.txt
+      - name: Generate cleaned list.txt
         run: |
-          # 进入 A 文件夹，列出所有文件并写入根目录的 list.txt
-          # 使用 find 命令可以递归查找子文件夹
-          find A -type f > list.txt
-          echo "Updated list.txt with $(wc -l < list.txt) files."
+          # 进入 A 文件夹进行查找，这样输出的文件名就不带 "A/" 前缀了
+          cd A
+          find . -type f | sed 's|^\./||' > ../list.txt
+          cd ..
+          echo "Updated list.txt with $(wc -l < list.txt) files (Paths cleaned)."
 
       - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add list.txt
-          # 只有在文件有变化时才提交，防止死循环
-          git diff --quiet && git diff --staged --quiet || (git commit -m "auto: update list.txt" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "auto: update cleaned list.txt" && git push)
