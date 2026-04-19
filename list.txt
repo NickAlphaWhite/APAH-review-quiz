@@ -113,6 +113,7 @@ A/Lamassu.jpg
 A/Niobides Krater-1.jpg
 A/Calling of Saint Matthew.jpg
 A/Great Mosque arches.jpg
+A/Rebecca and Eliezer at the Well and Jacob Wrestling the Angel-Jacob Wresting the Angel.jpg
 A/The Flood from Sistine Chapel.jpg
 A/Apadana.jpg
 A/Augustus of Prima Porta.jpg
@@ -283,7 +284,6 @@ A/Mesa Verde cliff dwellings.jpg
 A/Les Demoiselles d'Avignon.jpg
 A/Folio from a Qur'an.jpg
 A/Sistine Chapel-2.jpg
-A/Jacob Wresting the Angel.jpg
 A/Dome of the Rock-1.jpg
 A/Gathering at the Kaaba.jpg
 A/Buddha at Bamiyan-1.jpg
